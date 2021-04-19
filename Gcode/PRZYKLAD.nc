@@ -11,6 +11,10 @@ GROUP_BEGIN(0,"NAGLOWEK",0,0)
 ; Ustawiamy material zeby nam go pokazywal obrabianego SinuTrain:
 ; Material: STAL S235 104 X 74 X 32 MM
 WORKPIECE(, "",, "BOX", 0, 2, -32, -80, -2, -2, 104, 74)
+; 2     => naddatek
+; -32   => calkowita wysokosc + (-naddatek)     (Z)
+; 104   => calkowita szerokosc                  (X)
+; 74    => czerokosc szerokosc                  (Y)
 
 G54             ; Definiujemy wspolrzedne uzyte podczas obroki
 G71             ; Definiujemy wymiary w cm
@@ -71,7 +75,7 @@ G1 X125         ; 1. RUCH ROBOCZY
 G0 Y42          ; USTAWIENIE DO KOLEJNEGO PRZEJSCIA - SZEROKOSC SKRAWANIA Ae
 G1 X-25         ; 2. RUCH ROBOCZY
 G0 Y74          ; USTAWIENIE DO KOLEJNEGO PRZEJSCIA - SZEROKOSC SKRAWANIA Ae
-
+G1 X125 ;
 ; ODJAZD OD PRZEDMIOTU OBR
 G0 Z100         ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PLASZCZYZNY WYCOFANIA
 GROUP_END(0,0)
@@ -84,15 +88,15 @@ GROUP_BEGIN(0,"FREZOWANIE KONTURU ZEW ZGR",0,0)
 ; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
 ; z narzedziami
 T="Frez_walcowy_10" M6 ; Wymieramy nowe narzedzie i go uzywamy
-S1200           ; USTAWIAMY PREDKOSC PRACY WRZECIONA
-F400            ; ZADAJEMY NOWY POSUW 400
+S2000           ; USTAWIAMY PREDKOSC PRACY WRZECIONA
+F800            ; ZADAJEMY NOWY POSUW 400
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
 
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
-G0 X-25 Y35     ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
+G0 X-15 Y35     ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
 G0 Z-21         ; DOJAZD DO PRZEDMIOTU OBR
 G1 X0           ; DOJAZD DO KONTURU
-G1 Y70          ; DOJAZD DO LEWEGO GORNEGO NAROZNIKA
+G1 Y75          ; DOJAZD DO LEWEGO GORNEGO NAROZNIKA
 G1 X100         ; DOJAZD DO PRAWEGO GORNEGO NAROZNIKA
 G1 Y0           ; DOJAZD DO PRAWEGO DOLNEGO NAROZNIKA
 G1 X0           ; DOJAZD DO LEWEGO DOLNEGO NAROZNIKA
