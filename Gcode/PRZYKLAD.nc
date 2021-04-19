@@ -118,7 +118,8 @@ GROUP_END(0,0)
 ;               |...........................................|
 ;               |...........................................|
 ;               ---------------------------------------------
-
+; G2 - rysowanie łuku
+; "CR=2" rysowanie koła podając promieć (w tym przypadku 2 to promiec)
 
 
 GROUP_BEGIN(0,"FREZOWANIE KONTURU ZEW WYK",0,0)
