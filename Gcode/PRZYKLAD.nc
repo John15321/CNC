@@ -7,6 +7,9 @@ GROUP_BEGIN(0,"NAGLOWEK",0,0)
 ; frezarce, traktuj wartosci jako wartosci przemieszczenie
 ; !!! Znac funkcje G94, G95, G96... - funkcje ktore odnosza sie do parametrow technologicznych
 
+; G1 X10 ANG=150 - rucho o prosta pod katem
+; gdzie X10 to X na ktorym mamy skonczyc
+; ANG okresla kat pod jakim mamy isc
 
 ; Ustawiamy material zeby nam go pokazywal obrabianego SinuTrain:
 ; Material: STAL S235 104 X 74 X 32 MM
