@@ -122,7 +122,22 @@ G1 X6 Y0
 G1 X0 Y6
 
 G0 X-15 Y83
-G0 G40 Z100         ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
+G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
+GROUP_END(0,0)
+
+; DOJAZD DO PRZEDMIOTU OBR
+; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
+; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
+; z narzedziami
+T="Frez_walcowy_20" M6 ; Wymieramy nowe narzedzie i go uzywamy
+S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
+F535            ; ZADAJEMY posuw minutowy
+M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
+G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
+G0 Z-19         ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE WYSPY",0,0)
 
 
 
