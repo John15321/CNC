@@ -5,7 +5,7 @@ WORKPIECE(,"",,"BOX",0,2,-30,-80,-2,-2,184,170)
 ; 2     => naddatek
 ; -30   => calkowita wysokosc + (-naddatek)     (Z)
 ; 184   => calkowita szerokosc                  (X)
-; 170   => czerokosc szerokosc                 (Y)
+; 170   => czerokosc szerokosc                  (Y)
 
 G54             ; Definiujemy wspolrzedne uzyte podczas obroki
 G71             ; Definiujemy wymiary w cm
@@ -24,8 +24,7 @@ GROUP_BEGIN(0,"SKRAWANIE GORNE",0,0)
 
 ; Wskazujemy narzedzie za pomoca adresu "T" od tool
 ; narzedzie mozemy wskazac po numerze tego narzedzia w magazynie
-; (to cos co ustawialismy)
-T="Glowica_100"  ; MOZNA TEZ ZA POMOCA NUMERKA NP. T1, ale tak mozemy
+T="Glowica_100" ; MOZNA TEZ ZA POMOCA NUMERKA NP. T1, ale tak mozemy
 ;                 po prostu podac nazwe
 
 ; Danie do adresu T danego narzedzia samo z siebie nic wiecej
@@ -50,7 +49,7 @@ M8              ; DODATKOWO MOZEMY WLACZYC CHLODZIWO M8, LUB JE WYLACZYC M9
 ; z narzedziami
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X28 Y-55     ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z0           ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+G0 Z0           ; DOJAZD DO PRZEDMIOTU W OSI Z
 
 ; RUCHY OBROBCZE
 ; pozniej nastepuje obrobka
@@ -69,16 +68,13 @@ GROUP_END(0,0)
 GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE KONTURU ZEWNETRZNEGO",0,0)
 ; Ponowny
 ; DOJAZD DO PRZEDMIOTU OBR
-; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
-; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
-; z narzedziami
 T="Frez_walcowy_12" M6 ; Wymieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
-G0 X-11 Y-11     ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z-19           ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
+G0 Z-19         ; DOJAZD DO PRZEDMIOTU W OSI Z
 
 G0 G41 X0
 G1 Y166
@@ -87,22 +83,19 @@ G1 Y0
 G1 X0
 
 G0 X-11 Y-11
-G0 G40 Z100         ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
+G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
 GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE KONTURU ZEWNETRZNEGO",0,0)
 ; Ponowny
 ; DOJAZD DO PRZEDMIOTU OBR
-; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
-; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
-; z narzedziami
 T="Frez_walcowy_12" M6 ; Wymieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
-G0 X-11 Y-11     ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z-19           ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
+G0 Z-19         ; DOJAZD DO PRZEDMIOTU W OSI Z
 
 ; Lewe gorne zaokraglenie
 G0 G41 X0
@@ -129,16 +122,13 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE WYSPY",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
-; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
-; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
-; z narzedziami
 T="Frez_walcowy_20" M6 ; Wymieramy nowe narzedzie i go uzywamy
 S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F535            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z
 
 ; Wycinamy lewy pas
 G1 G41 X16
@@ -161,7 +151,6 @@ G1 Y166
 G1 X68
 G1 Y146
 G1 X180
-; G1 X180 Y110
 
 G1 Y35
 G1 Y0 X150
@@ -208,16 +197,13 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE WYSPY",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
-; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
-; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
-; z narzedziami
 T="Frez_walcowy_6" M6 ; Wymieramy nowe narzedzie i go uzywamy
 S9550           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F573            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z
 
 TRANS X17 Y38
 AROT Z-14
@@ -238,9 +224,8 @@ G1 X0 Y6
 G0 X-10 Y6
 G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
 TRANS X0 Y0
-; AROT Z14
 GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE KONTURU ZEW WYK",0,0)
-M30             ; ZAKONCZENIE PROGRAMU, POJSCIE W STANDBY CZY COS TAKIEGO
+M30             ; ZAKONCZENIE PROGRAMU
 GROUP_END(0,0)
