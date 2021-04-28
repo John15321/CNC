@@ -1,4 +1,4 @@
- 
+
 GROUP_BEGIN(0,"NAGLOWEK",0,0)
 ; Naglowek
 WORKPIECE(,"",,"BOX",0,2,-30,-80,-2,-2,184,170)
@@ -16,7 +16,6 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"SKRAWANIE GORNE",0,0)
 ; Usuwamy gorny naddatek wysokosci 2mm
-
 
 ; NARZEDZIE - Wymiana
 ; wskazujemy jakiego narzedzia chcemy uzywac, obrabiarka
@@ -66,7 +65,6 @@ GROUP_END(0,0)
 
 
 GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE KONTURU ZEWNETRZNEGO",0,0)
-; Ponowny
 ; DOJAZD DO PRZEDMIOTU OBR
 T="Frez_walcowy_12" M6 ; Wymieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
@@ -133,7 +131,6 @@ G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z
 ; Wycinamy lewy pas
 G1 G41 X16
 G1 Y156
-
 
 ; Wycinamy gorny pas
 G1 X175
