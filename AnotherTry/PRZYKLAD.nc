@@ -126,6 +126,86 @@ G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
 GROUP_END(0,0)
 
 
+
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE WYSPY",0,0)
+; DOJAZD DO PRZEDMIOTU OBR
+; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
+; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
+; z narzedziami
+T="Frez_walcowy_20" M6 ; Wymieramy nowe narzedzie i go uzywamy
+S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
+F535            ; ZADAJEMY posuw minutowy
+M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
+G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
+G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
+
+; Wycinamy lewy pas
+G1 G41 X16
+G1 Y156
+
+
+; Wycinamy gorny pas
+G1 X175
+
+; Wycinamy prawy pas
+G1 X175
+G1 Y10
+
+; Wycinamy dolny pas
+G1 X0
+
+
+; Robimy kilka kolejnych okrazen zeby wszystko zebrac
+G1 Y166
+G1 X68
+G1 Y146
+G1 X180
+; G1 X180 Y110
+
+G1 Y35
+G1 Y0 X150
+G1 X81 Y0
+
+G1 Y25 X0
+
+G1 Y166
+G1 X95
+G1 Y135
+G1 X180
+
+G1 Y130
+G1 X165
+G1 X180
+G1 Y0
+G1 X0
+
+
+; Kolejne podejscie do zgrubnego scinania, ale tym razem obchodzmy wyspe
+; sama w sobie uzywajac jej jako odniesienia
+TRANS X17 Y38
+AROT Z-14
+G0 X-15 Y8
+G0 Z-12
+G1 G41 X0
+G1 Y90
+G2 X16 Y106 J16
+G1 X110
+G1 X136 ANG=-14
+G1 Y24.5
+G1 X130.5 Y19
+G1 X124.5 RND=20
+G1 Y0 RND=20
+G1 X0
+TRANS X0 Y0
+
+G1 G40 X-15 Y8
+G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
+GROUP_END(0,0)
+
+
+
+
 GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE WYSPY",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
 ; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
@@ -160,63 +240,6 @@ G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
 TRANS X0 Y0
 ; AROT Z14
 GROUP_END(0,0)
-
-GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE WYSPY",0,0)
-; DOJAZD DO PRZEDMIOTU OBR
-; nastepnie musi tym narzedziem dojechac do przedmiotu obrabianego
-; Zakladamy ze po zmianie narzedzia, jestesmy w poblizu magazynu
-; z narzedziami
-T="Frez_walcowy_20" M6 ; Wymieramy nowe narzedzie i go uzywamy
-S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
-F535            ; ZADAJEMY posuw minutowy
-M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
-G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
-G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
-G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z - USTAWIENIE GL. SKRAWANIA Ap
-
-; Wycinamy lewy pas
-G1 G41 X16
-G1 Y156
-
-
-; Wycinamy gorny pas
-G1 X175
-
-; Wycinamy prawy pas
-G1 X175
-G1 Y10
-
-; Wycinamy dolny pas
-G1 X0
-
-
-
-
-
-
-; Kolejne podejscie do zgrubnego scinania
-TRANS X17 Y38
-AROT Z-14
-G0 X-15 Y8
-G0 Z-12
-G1 G41 X0
-G1 Y90
-G2 X16 Y106 J16
-G1 X110
-G1 X136 ANG=-14
-G1 Y24.5
-G1 X130.5 Y19
-G1 X124.5 RND=20
-G1 Y0 RND=20
-G1 X0
-TRANS X0 Y0
-
-
-
-G1 G40 X-15 Y8
-G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
-GROUP_END(0,0)
-
 
 GROUP_BEGIN(0,"FREZOWANIE KONTURU ZEW WYK",0,0)
 M30             ; ZAKONCZENIE PROGRAMU, POJSCIE W STANDBY CZY COS TAKIEGO
