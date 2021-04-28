@@ -3,9 +3,9 @@ GROUP_BEGIN(0,"NAGLOWEK",0,0)
 ; Naglowek
 WORKPIECE(,"",,"BOX",0,2,-30,-80,-2,-2,184,170)
 ; 2     => naddatek
-; -30   => calkowita wysokosc + (-naddatek)     (Z)
-; 184   => calkowita szerokosc                  (X)
-; 170   => czerokosc szerokosc                  (Y)
+; -30   => calkowita wysokosc                   (Z)
+; 184   => szerokosc                            (X)
+; 170   => dlugosc                              (Y)
 
 G54             ; Definiujemy wspolrzedne uzyte podczas obroki
 G71             ; Definiujemy wymiary w cm
@@ -66,7 +66,7 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE KONTURU ZEWNETRZNEGO",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
-T="Frez_walcowy_12" M6 ; Wymieramy nowe narzedzie i go uzywamy
+T="Frez_walcowy_12" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
@@ -87,7 +87,7 @@ GROUP_END(0,0)
 GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE KONTURU ZEWNETRZNEGO",0,0)
 ; Ponowny
 ; DOJAZD DO PRZEDMIOTU OBR
-T="Frez_walcowy_12" M6 ; Wymieramy nowe narzedzie i go uzywamy
+T="Frez_walcowy_12" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
@@ -120,7 +120,7 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE WYSPY",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
-T="Frez_walcowy_20" M6 ; Wymieramy nowe narzedzie i go uzywamy
+T="Frez_walcowy_20" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F535            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
@@ -194,7 +194,7 @@ GROUP_END(0,0)
 
 GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE WYSPY",0,0)
 ; DOJAZD DO PRZEDMIOTU OBR
-T="Frez_walcowy_6" M6 ; Wymieramy nowe narzedzie i go uzywamy
+T="Frez_walcowy_6" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S9550           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F573            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
@@ -223,6 +223,6 @@ G0 G40 Z100     ; ODJAZD OD PRZEDMIOTU OBRABIANEGO DO PL. WYCOFANIA
 TRANS X0 Y0
 GROUP_END(0,0)
 
-GROUP_BEGIN(0,"FREZOWANIE KONTURU ZEW WYK",0,0)
+GROUP_BEGIN(0,"KONIEC PROGRAMU",0,0)
 M30             ; ZAKONCZENIE PROGRAMU
 GROUP_END(0,0)
