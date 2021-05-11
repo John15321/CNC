@@ -70,6 +70,7 @@ T="Frez_walcowy_12" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+M8 ; wlaczenie chlodziwa
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
 G0 Z-19         ; DOJAZD DO PRZEDMIOTU W OSI Z
@@ -91,6 +92,7 @@ T="Frez_walcowy_12" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S3710           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F696            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+M8 ; wlaczenie chlodziwa
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
 G0 Z-19         ; DOJAZD DO PRZEDMIOTU W OSI Z
@@ -124,6 +126,7 @@ T="Frez_walcowy_20" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S2240           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F535            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+M8 ; wlaczenie chlodziwa
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
 G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z
@@ -198,6 +201,7 @@ T="Frez_walcowy_6" M6 ; Wybieramy nowe narzedzie i go uzywamy
 S9550           ; USTAWIAMY PREDKOSC PRACY WRZECIONA - predkosc obrotowa
 F573            ; ZADAJEMY posuw minutowy
 M3              ; USTAWIAMY KIERUNEK KRECENIA SIE NA "W PRAWO"
+M8 ; wlaczenie chlodziwa
 G0 Z100         ; DOJAZD DO PLASZCZYZNY WYCOFANIA
 G0 X-11 Y-11    ; DOJAZD DO PUNKTU STARTOWEGO DO OBROKI W KIERUNKU XY
 G0 Z-12         ; DOJAZD DO PRZEDMIOTU W OSI Z
@@ -224,20 +228,21 @@ TRANS X0 Y0
 GROUP_END(0,0)
 
 
+; Zadanie 3
 
-GROUP_BEGIN(0,"Kieszeń - okrąg - frezowanie zgrubne",0,0)
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE OKREGU W KIESZENI",0,0)
 T="Frez_walcowy_16"
 M6 
-S796
+S2230 ; predkosc obrotowa
 M3
 M8
 G0 Z100
 TRANS X17 Y38
 AROT Z-14
-POCKET4(100,0,2,-16,27,53,53,2.5,0.5,0,0.1,0.1,0,1011,50,9,15,0,2,0,1,2,10100,111,111)
+POCKET4(100,0,2,-16,27,53,53,2.5,0.5,0,535,0.1,0,1011,50,9,15,0,2,0,1,2,10100,111,111)
 TRANS
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Kieszeń - okrąg - frezowanie wykończeniowe",0,0)
+GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE OKREGU W KIESZENI",0,0)
 T="Frez_walcowy_10"
 M6 
 S10000
@@ -250,7 +255,7 @@ POCKET4(100,0,2,-16,27,53,53,4,0.5,0,0.1,0.1,0,14,50,9,15,0,2,0,1,2,10100,111,11
 G0 Z100
 TRANS
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Kieszeń prostokątna - frezowanie zgrubne",0,0)
+GROUP_BEGIN(0,"FREZOWANIE ZGRUBNE KIESZENI PROSTOKATNEJ",0,0)
 T="Frez_walcowy_10"
 M6 
 S10000
@@ -264,7 +269,7 @@ POCKET3(100,0,2,-10,69,45,6,53,53,28,4,0.1,0.1,0.1,0.1,0,11,3,8,3,15,0,2,0,1,2,1
 G0 Z100
 TRANS
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Kieszeń prostokątna - frezowanie wykończeniowe",0,0)
+GROUP_BEGIN(0,"FREZOWANIE WYKONCZENIOWE KIESZENI PROSTOKATNEJ",0,0)
 
 T="Frez_walcowy_10"
 M6 
@@ -278,7 +283,7 @@ POCKET3(100,0,2,-10,69,45,6,53,53,28,4,0.1,0.1,0.1,0.1,0,14,3,8,3,15,0,2,0,1,2,1
 G0 Z100
 TRANS
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - nawiercenie wszystkich otworów",0,0)
+GROUP_BEGIN(0,"OBROBKA - NAWIERCENIE WSZYSTKICH OTWOROW",0,0)
 T="Nawiertak_6_K90"
 M6
 F568
@@ -307,7 +312,7 @@ male: CYCLE801(68,146,-14,9,7,3,2,0,0,0,0,,,1)
 MCALL
 G0 Z100
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - wwiercenie 3.3",0,0)
+GROUP_BEGIN(0,"OBROBKA - WIERCENIE OTWOROW 3.3",0,0)
 T="Wiertlo_3.3_5xD"
 M6
 F338
@@ -320,7 +325,7 @@ REPEATB male ;#SM
 MCALL
 G0 Z100
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - wwiercenie 4.2",0,0)
+GROUP_BEGIN(0,"OBROBKA - WIERCENIE OTWOROW 4.2",0,0)
 T="Wiertlo_4.2_5D"
 M6
 F338
@@ -340,7 +345,7 @@ TRANS
 G0 Z100
 
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - wwiercenie 6.6",0,0)
+GROUP_BEGIN(0,"OBROBKA - WIERCENIE OTWOROW 6.6",0,0)
 T="Wiertlo_6.8_5xD"
 M6
 F236
@@ -355,7 +360,7 @@ MCALL
 
 G0 Z100
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - pogłębienie stożkowe x4",0,0)
+GROUP_BEGIN(0,"OBROBKA - POGLEBIENIE OTWOROW STOZKOWYCH X 4",0,0)
 T="Poglebiacz_16_K90"
 M6
 F416
@@ -384,7 +389,7 @@ MCALL CYCLE81(100,-12,1,4.05,,0,10,1,11)
 REPEATB male ;#SM
 MCALL
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - gwintowanie M4",0,0)
+GROUP_BEGIN(0,"OBROBKA - GWINTOWANIE OTWOROW M4",0,0)
 T="Gwintownik_M4"
 M6
 S2230
@@ -397,7 +402,7 @@ MCALL
 G0 Z100
 
 GROUP_END(0,0)
-GROUP_BEGIN(0,"Obróbka otworów - gwintowanie M5",0,0)
+GROUP_BEGIN(0,"OBROBKA - GWINTOWANIE OTWOROW M5",0,0)
 T="Gwintownik_M5"
 M6
 S828
